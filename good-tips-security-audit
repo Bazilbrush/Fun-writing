@@ -1,0 +1,90 @@
+How to pass any pentest and look good doing it.
+Imagine you're a Ciso or  and you know that your security it absolute garbage.
+Perhaps, you don't actually know that fact, but you frankly don't get paid enough to check;
+'cuz really, who needs to get out of their comfort zone, and do stuff, enact measures, add layers of protection, manage risks and worry about budget?
+
+And suddenly ... now a wild pentest appears! Of course, this is not your doing, but a frivolous whim of the upper management or changes in the compliance law. Obviously you need to find the "right" contractor that does the exact thing you need - write a report that everything is good, and that'd be the end of it, but the situation is getting more complicated. Your bosses have decided that it would be a good idea to make a tender for this job, write up a bunch of technical requirements, find certified security specialists with BugBounty experience, etc. All in all, they took care of the organisational shit, your job now is to oversee the work.
+So, pentest team is assembled, contract is signed, and you couldn't convince the contractors to fudge the results. Those guys are pros, they start Monday and will tear your security a new one, and after that you can say goodbye to that christmas bonus. The situation seems dire AD but here's a bunch of top tips for to minimize the damage to your career and reputation.
+
+1. Ratify every step
+Ratify everything: what tools are allowed to be used, what attacks they can perform, how does that compromise the actual security of your system. Get a detailed (hourly) plan of testing for every day of work. Pentesters will definitely love that; those guys thought that they have a creative position where one must think outside the box, but you'll show them that their place is routine execution of shell commands. And remember, time is your weapon, stall negotiations on every step, use phrases such as "large enterprise" and "I need input from system owners on this (IT, Security officers, compliance)" even if they don't exist.
+
+Real world example (client was netgotiating the escalation of privileges on a specific server from 15:00 to 18:00)
+
+2. Add more controls (in Agile they'd call em blockers but we wanna make it look like we're enabling)
+Add limits on the work being done: number of concurrent port scans, allowed IP-addesses, what attack vectors are allowed. Forbid scanning random IP's on the subnet, as it might disrupt important business processes. Or allow scans only to certain addresses and explain that these scan results can be extrapolated to the rest of the subnet.
+
+3. frequent reporting
+So we talked about negotiations already, but what about reporting? We gonna leave those guys alone and let them wreak havoc on our network and then write a report at the end? Hell no!
+Ask for reports every week/day/before lunch. Make it known that that this comes from past experience and a want to control the process, that you paid for.
+
+Real World example: ask every 5 minutes "have you hacked it yet?". Ask once an hour at least about status of work in every possible message platform, then ask for a nicely formatted Word report byt the end of the day. In the end the contractors focus on writing a nice report rather than quality of work. PROFIT!!!
+
+4. Demand to record traffic dumps and screen
+Ask that contractors record their screen and traffic, justify that you worry about leaks of confidential information or adding backdoors.
+
+Real World example
+Some clients go full paranoia mode and wanna control every little step. Although, a good pentester knows how to circumvent screen capture tools or generate fake traffic, thus it's kinda pointless measure, nevertheless, it takes time and definitely cuts into the doing of the work. 
+
+5. Use hierarchy to your advantage.
+Communicate through 3+ managers, thus playing Chinese whispers and dragging out the timelines. Try to make sure that actual requirements never get to the people that need to do the work, communicate through 3rd parties, pick ones that have absolutely no experience in the subject. Thus the if the information will reach the contractor, it's wither gonna taka a year or will be changed beyond recognition.
+
+Real world example Do I need one?
+
+6. Get Personal, hit their ego.
+Remember, like in every endeavour, people are the most important part. Thus, to reduce the quality of work, strike at the people, or more precisely, their pride. Ask them how would they test some irrelevant lesser-known technology, then reply with something like "I expected more...". Add that several years ago some other testers broke through everything in 2 hours. Just don't mention that 2 years ago the system was completely different and you worked in a different place. What's important here is the fact that if they can't break it in 2 hours, then there's no point respecting them. If you see the pentest team starting to get discouraged, demand the team be replaced without changing the end date of the audit.
+Also get creative with -isms. And of course, make sure you are not the one doing it, unless you want to have disciplinary conversation with HR about making a thing of that 'girl pentester'.
+
+7. Remove creature comforts
+Working in a dark basement with no mobile signal? A hectic open office? Broken squeaky chair? Aircon that makes your life a frozen or scorching hell? Getting a glass of water or trip to the bathroom requires a chaperone? get your creative juices flowing, you know what to do... :D
+
+8. All active protection ON.
+Now to the techincal bits. Even though PCI DSS and other scrub methodologies say it's good practice to shut off all proactive security measures to get a deeper audit, this is not for us. Let them have some fun trying to scan your corporate network while getting constantly blocked.
+Hook into the main switch and shut off the ports as soon as auditors try to connect to them, loudly screaming that the audit is failed and the team is disqualified. Quickly get security to escort the hackers off the premises.
+
+9. Sandbox the shit out of it.
+Provide a "realistic" vlan access that is definitely like for like to other users. Make sure the subnet is pristine (or empty). Set filtering to deny/deny or similar. 
+
+Real world example. Some clients gave us access to a network with just one printer in it. Which meant we did some printer testing. Although there's always that time when you can pwn the whole company through a lowly misconfigured printer.
+
+10. VPN, VPN, VPN
+Making an internal security audit in a real office where pentesters can get a boatload of extra information (voip settings, printers, overhear your colleagues, see the equipment) is not for us. You need to make sure the work is done emulating and "internal security breach", make sure you interpret this requirement creatively. Justify this as a savings measure, environment (petrol etc), disruping the business process, not enough space in the office etc.
+
+11. Say NO to grey box
+No logins, documentation, extra information, event if it's written in the contract. This will speed up their work and they might leave early and you already paid for a week of their time! Anyhow, real ha][0rs can just come and break everything with no information given. if they insist, give them 10 year old documentation. 
+
+12. Prohibit sharing of information between internal and external work
+Divide and conquer methodology works here too. make sure that internal work and external, or social engineering audit is done by different people and they don't talk to each other. You simply must record the separate risk vectors in isolation!
+If in external attack was performed using some insider information, disqualify this immediately, and vice versa.
+
+Real World Example: while it's common practice to keep results of every test in isolation of each other, this is not how real world red teams are going to attack you.
+
+13. Make sure everyone knows that there's a pentest.
+Tell everyone, even the cleaners. Make sure all the post-its with login details are removed, nobody's clicking on links or attachments in their email and plugs random thumbdrives they found in the car park into their workstation. Employees with root access and the like can be booked on a holiday or a training course, their machines powered down, and most importantly change their password "qwerty" to something strong, even just for the time of the audit. All in all the level of activity inside the network needs to be down and your vigilance needs to be up. This way you can minimise the impact of the attacks on staff in your network as well as curb their spread.
+
+14. Monitor the auditors
+Drop everything you do and just monitor the pentest team. Even if you don't have monitoring, do all you can. As soon as you sense they found something, plug that hole, block the service, turn off the port, change privileges.
+
+Real World Example: This techinique is the most favourite of shit CISO's; you say something like "anything that's critical we gonna relay to you immediately so you can start preparing remediation, but don't change it right now as we're not just trying to find holes, but bad processes". As soon as you report major finding, this something "accidentally" gets changed or disappeared.
+
+15. Forbid Exploiting vulnerabilities
+If somehow your pentesters found something major, and they are asking for permission to exploit, say no. Justify that  unsecured laptop for powerpoints as a business-critical service.
+
+16. Start-stop
+Have you ever seen superbowl? Almost every 30 seconds they stop the game for one or another reason to then show a replay of some mundane moment. Taking that analogy, apply it to your pentest. Every IT incident that comes into your ticketing system can now be blamed on the audit; use the incident ticket as an excuse to pause the audit work. If there's no incident (unlikely) make one up. Ask the auditors to show you the logs of everything they did 2 days ago from 14:00 to 15:45 - let then sift through their traffic working out what checks they ran where.
+
+17. Don't let pentesters analyse email and filestores.
+if they managed to get access to your mail servers and filesotres forbid them from running any analysis. The data is simply too confidential!
+
+Real world example: as soon as you get your hands on admininstrator's email you're told that you can't read any; and it's usually a treasure trove of compromising information. And yes, real hackers don't care about your confidentiality.
+
+18. make sure that 3rd party vendor software is in scope.
+Make sure this is on the tops of your list of required work! Your criteria are: widespread, and out the box with vendor config. And you definitely want Microsoft Word or Sophos UTM audited! 
+
+19. Ask to use "professional language" in the report.
+Even if you get pwned and the first version of the report lands on your table, you can always throw it back and ask to edit out some of the more "juicy" moments, as they are unconstructive and wil just cause unnecessary panic and will be misinterpreted but the non-techincal staff. This is just business and you want to get a report you paid for.
+
+20. Fear and loathing in las vegas
+Utter chaos. Unpredictability. Insanity. Why not? If you have the stones and the techincal ability (you probably should have secured your network, but who am I to judge) make it the network version of a Home Alone, just don't get caught and play dumb. For example make every 27th tcp packet come back to the auditor with corrupt data. :D
+
+Conclusion. Nobody will ever put the million problems they encountered during the audit in their report. That the access was only granted for 5 hours, that negotiations of work took 2 days of 5 allocated for the audit, the chair was broken and that it was freezing cold because the windows don't close properly. All there is in the report is dry summary of the security and nobody will ever know how much blood sweat and tears went into it.
